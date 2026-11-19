@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#14161c">
+<title>Snap Cards</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Snap Cards">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div id="tabs" class="row"><button class="active" data-view="all">ทั้งหมด</button><button data-view="own">คลัง (<span id="ownedN">0</span>)</button><button data-view="rec">💡 แนะนำ</button><button data-view="fav">★ รายการโปรด (<span id="favN">0</span>)</button></div>
+  <div class="row">
+    <input id="q" placeholder="ค้นหาชื่อหรือความสามารถ…">
+  </div>
+  <div class="row">
+    <select id="cost"><option value="">Energy (ทั้งหมด)</option><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option value="6+">6+</option></select>
+    <select id="power"><option value="">Power (ทั้งหมด)</option><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option value="6+">6+</option></select>
+    <select id="kw"><option value="">คีย์เวิร์ด (ทั้งหมด)</option></select>
+    <select id="tier"><option value="">Tier (ทั้งหมด)</option><option>Tier 1</option><option>Tier 2</option><option>Tier 3</option><option>Tier 4</option><option>Tier 5</option><option value="-">ไม่มีข้อมูล</option></select>
+    <select id="sort"><option value="">เรียง: เดิม</option><option value="new" selected>ใหม่สุด → เก่าสุด</option><option value="old">เก่าสุด → ใหม่สุด</option><option value="name">ชื่อ A–Z</option><option value="cost">Cost น้อย → มาก</option></select>
+    <select id="series"><option value="">Series (ทั้งหมด)</option></select>
+  </div>
+  <div class="row">
+    <button id="undo" disabled title="ย้อนการแก้ไขคลังครั้งล่าสุด">↶ ย้อน</button>
+    <button id="build">จัดเด็คจากคลัง</button>
+    <button id="clearOwned">ล้างคลัง</button>
+  </div>
+  <div class="row" id="tierAdd">
+    <span style="align-self:center">เพิ่มทั้ง Tier:</span>
+    <label><input type="checkbox" class="tchk" value="Tier 1" style="flex:none"> 1</label>
+    <label><input type="checkbox" class="tchk" value="Tier 2" style="flex:none"> 2</label>
+    <label><input type="checkbox" class="tchk" value="Tier 3" style="flex:none"> 3</label>
+    <label><input type="checkbox" class="tchk" value="Tier 4" style="flex:none"> 4</label>
+    <label><input type="checkbox" class="tchk" value="Tier 5" style="flex:none"> 5</label>
+    <button id="tierAddBtn">เพิ่มเข้าคลัง</button>
+  </div>
+  <div id="tierConfirm" class="row" hidden><span id="tierMsg" style="color:#ffcf66"></span><button id="tierOk">ยืนยัน</button><button id="tierNo">ยกเลิก</button></div>
+  <div id="pinRow" class="row" hidden><input id="pin" type="password" inputmode="numeric" placeholder="ใส่รหัสเพื่อล้างคลัง" style="flex:none;width:160px"><button id="pinOk">ยืนยันล้าง</button><button id="pinCancel">ยกเลิก</button><span id="pinMsg" style="color:#ff7b7b;align-self:center"></span></div>
+  <div id="deck"></div>
+  <div class="row">
+    <button id="json">Export JSON</button>
+    <button id="csv">Export CSV</button>
+    <button id="mode" title="สลับมุมมอง">▦ การ์ด</button>
+    <button id="lang" title="สลับภาษา">ไทย</button>
+    <button id="reload">รีเฟรช</button>
+    <span id="status" style="align-self:center"></span>
+  </div>
+</header>
+<div id="list"></div>
+<div id="pager" hidden><button id="prev">‹ ก่อนหน้า</button><span id="pageInfo"></span><button id="next">ถัดไป ›</button></div>
+<script src="app.js"></script>
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => navigator.serviceWorker.register('sw.js').catch(() => {}));
+  }
+</script>
+</body>
+</html>

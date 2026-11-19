@@ -1,0 +1,607 @@
+{
+ "source": "https://marvelsnapzone.com/decks/",
+ "fetched": "2026-11-19",
+ "note": "Zone decks since last patch, 100+ games, sorted by win rate",
+ "decks": [
+  {
+   "name": "Zombie Scarlet Witch Nicholas Scratch",
+   "wr": 69.6,
+   "games": 102,
+   "meta": true,
+   "cards": [
+    "Majestic Wingbeat",
+    "The Hunger",
+    "Nicholas Scratch",
+    "Vampire Killmonger",
+    "Joaquin Torres Falcon II",
+    "Scarlet Witch",
+    "Zombie Blade",
+    "Venus",
+    "Scarlet Witch Queen of Chaos",
+    "Zombie Scarlet Witch",
+    "Zombie Giant-Man",
+    "Sasquatch"
+   ]
+  },
+  {
+   "name": "Mordred Arthur Pendragon",
+   "wr": 66.4,
+   "games": 143,
+   "meta": true,
+   "cards": [
+    "Zabu",
+    "Psylocke",
+    "Captain Britain",
+    "Mordred",
+    "Jubilee",
+    "Arthur Pendragon",
+    "En Sabah Nur",
+    "Captain Marvel",
+    "Lancelot",
+    "Moonstone",
+    "Iron Lad",
+    "Anti-Polar Magneto"
+   ]
+  },
+  {
+   "name": "Nicholas Scratch Zombie Scarlet Witch",
+   "wr": 64.9,
+   "games": 185,
+   "meta": true,
+   "cards": [
+    "Majestic Wingbeat",
+    "The Hunger",
+    "Merlin of Avalon",
+    "Nicholas Scratch",
+    "Vampire Killmonger",
+    "Zombie Blade",
+    "Venus",
+    "Scarlet Witch Queen of Chaos",
+    "Werewolf By Night",
+    "Zombie Scarlet Witch",
+    "Zombie Giant-Man",
+    "Sasquatch"
+   ]
+  },
+  {
+   "name": "META?",
+   "wr": 64.5,
+   "games": 152,
+   "meta": false,
+   "cards": [
+    "Deafening Chord",
+    "Majestic Wingbeat",
+    "Vampire Killmonger",
+    "Joaquin Torres Falcon II",
+    "Scarlet Witch Queen of Chaos",
+    "Werewolf By Night",
+    "Psylocke Fractured Frontier",
+    "Shadow King",
+    "Mother Askani",
+    "Shou-Lao the Undying",
+    "Superior Iron Man",
+    "Sasquatch"
+   ]
+  },
+  {
+   "name": "living in past tense",
+   "wr": 64.3,
+   "games": 129,
+   "meta": false,
+   "cards": [
+    "Deafening Chord",
+    "Majestic Wingbeat",
+    "Kitty Pryde",
+    "Nico Minoru",
+    "Nicholas Scratch",
+    "Vampire Killmonger",
+    "Angela",
+    "Bishop",
+    "Venus",
+    "Cosmo",
+    "Scarlet Spider",
+    "Shou-Lao the Undying"
+   ]
+  },
+  {
+   "name": "New Horde",
+   "wr": 64.2,
+   "games": 159,
+   "meta": false,
+   "cards": [
+    "Deafening Chord",
+    "Majestic Wingbeat",
+    "The Hunger",
+    "Nicholas Scratch",
+    "Vampire Killmonger",
+    "Zombie Mister Fantastic",
+    "Joaquin Torres Falcon II",
+    "Venus",
+    "Scarlet Witch Queen of Chaos",
+    "Zombie Scarlet Witch",
+    "Zombie Giant-Man",
+    "Sasquatch"
+   ]
+  },
+  {
+   "name": "Stardust King Eitri",
+   "wr": 63.0,
+   "games": 100,
+   "meta": true,
+   "cards": [
+    "Merlin of Avalon",
+    "King Eitri",
+    "Zombie Mister Fantastic",
+    "Shadowlands Daredevil",
+    "Valentina",
+    "Mobius M. Mobius",
+    "Scarlet Witch Queen of Chaos",
+    "Shadow King",
+    "Gambit Horseman of Death",
+    "Stardust",
+    "Thanos Fractured Frontier",
+    "Kluh"
+   ]
+  },
+  {
+   "name": "Khonshu Weapon H",
+   "wr": 62.9,
+   "games": 124,
+   "meta": true,
+   "cards": [
+    "Blade",
+    "Morbius",
+    "Gambit",
+    "Corvus Glaive",
+    "Zombie Black Cat",
+    "Lady Sif",
+    "Dracula",
+    "Proxima Midnight",
+    "M.O.D.O.K.",
+    "Khonshu",
+    "Apocalypse",
+    "Weapon H"
+   ]
+  },
+  {
+   "name": "Zombie Galacti Superior Spider-Man",
+   "wr": 62.8,
+   "games": 148,
+   "meta": true,
+   "cards": [
+    "Majestic Wingbeat",
+    "America Chavez",
+    "Echo",
+    "Adam Warlock",
+    "Surge",
+    "Magik",
+    "Superior Spider-Man",
+    "Mister Fantastic First Steps",
+    "Wong",
+    "Shuri",
+    "Stick",
+    "Zombie Galacti"
+   ]
+  },
+  {
+   "name": "Elsa Bloodstone Marvel Boy",
+   "wr": 62.5,
+   "games": 104,
+   "meta": true,
+   "cards": [
+    "Kitty Pryde",
+    "Spider-Ham",
+    "America Chavez",
+    "Nico Minoru",
+    "Nightcrawler",
+    "Adam Warlock",
+    "Marvel Boy",
+    "Venus",
+    "Jane Foster Fractured Frontier",
+    "Elsa Bloodstone",
+    "Stardust",
+    "Thanos Fractured Frontier"
+   ]
+  },
+  {
+   "name": "Arishem Blob",
+   "wr": 62.1,
+   "games": 140,
+   "meta": true,
+   "cards": [
+    "Quinjet",
+    "Merlin of Avalon",
+    "M'Baku",
+    "Iron Patriot",
+    "Kang",
+    "Negasonic Teenage Warhead",
+    "Juggernaut",
+    "Gambit Horseman of Death",
+    "Blob",
+    "Anti-Polar Magneto",
+    "Mockingbird",
+    "Arishem"
+   ]
+  },
+  {
+   "name": "Zombie Galacti Gwenpool",
+   "wr": 62.0,
+   "games": 324,
+   "meta": true,
+   "cards": [
+    "Deafening Chord",
+    "Majestic Wingbeat",
+    "America Chavez",
+    "Spider-Man Brand New Day",
+    "Adam Warlock",
+    "Surge",
+    "Magik",
+    "Superior Spider-Man",
+    "Mister Fantastic First Steps",
+    "Stick",
+    "Gwenpool",
+    "Zombie Galacti"
+   ]
+  },
+  {
+   "name": "LittleOngoings",
+   "wr": 62.0,
+   "games": 121,
+   "meta": false,
+   "cards": [
+    "Ant Man",
+    "Goliath",
+    "Luke Cage",
+    "Ravonna Renslayer",
+    "Sam Wilson Captain America",
+    "Sage",
+    "Mystique",
+    "Captain Carter",
+    "Captain America",
+    "Moonstone",
+    "Iron Lad",
+    "Iron Man"
+   ]
+  },
+  {
+   "name": "Ikari Laufey",
+   "wr": 61.9,
+   "games": 604,
+   "meta": true,
+   "cards": [
+    "Polaris Horseman of Pestilence",
+    "Hellcow Fractured Frontier",
+    "Jane Foster Fractured Frontier",
+    "Caliban Horseman of Pestilence",
+    "Omega Sentinel",
+    "Laufey",
+    "Captain Marvel",
+    "Iron Lad",
+    "Ikari",
+    "Dragon Lord",
+    "Scorpion Brand New Day",
+    "Anti-Polar Magneto"
+   ]
+  },
+  {
+   "name": "AntiPolar Speed",
+   "wr": 61.9,
+   "games": 244,
+   "meta": false,
+   "cards": [
+    "Quicksilver",
+    "Domino",
+    "Jane Foster Fractured Frontier",
+    "Speed",
+    "Caliban Horseman of Pestilence",
+    "Jubilee",
+    "En Sabah Nur",
+    "Karen Page",
+    "Captain Marvel",
+    "Iron Lad",
+    "Thanos Fractured Frontier",
+    "Anti-Polar Magneto"
+   ]
+  },
+  {
+   "name": "Wittle Bitty buffs",
+   "wr": 61.4,
+   "games": 554,
+   "meta": false,
+   "cards": [
+    "Kitty Pryde",
+    "Spider-Ham",
+    "America Chavez",
+    "Nico Minoru",
+    "Spider-Man Brand New Day",
+    "Nightcrawler",
+    "Adam Warlock",
+    "Marvel Boy",
+    "Venus",
+    "Jane Foster Fractured Frontier",
+    "Elsa Bloodstone",
+    "Thanos Fractured Frontier"
+   ]
+  },
+  {
+   "name": "Zombie Galacti Shuri",
+   "wr": 61.3,
+   "games": 191,
+   "meta": true,
+   "cards": [
+    "Majestic Wingbeat",
+    "Zabu",
+    "America Chavez",
+    "Echo",
+    "Adam Warlock",
+    "Surge",
+    "Magik",
+    "Phastos",
+    "Mister Fantastic First Steps",
+    "Wong",
+    "Shuri",
+    "Zombie Galacti"
+   ]
+  },
+  {
+   "name": "Absorbing Man Wong",
+   "wr": 61.2,
+   "games": 103,
+   "meta": true,
+   "cards": [
+    "The Hunger",
+    "Zombie Sentry",
+    "Vampire Killmonger",
+    "Zombie Mister Fantastic",
+    "Morph",
+    "Groot",
+    "Wong",
+    "Shang-Chi",
+    "Absorbing Man",
+    "White Tiger",
+    "Zombie Giant-Man",
+    "Odin"
+   ]
+  },
+  {
+   "name": "Deck 20",
+   "wr": 61.1,
+   "games": 185,
+   "meta": false,
+   "cards": [
+    "Majestic Wingbeat",
+    "The Hunger",
+    "Nicholas Scratch",
+    "Vampire Killmonger",
+    "Zombie Mister Fantastic",
+    "Zombie Blade",
+    "Venus",
+    "Scarlet Witch Queen of Chaos",
+    "Werewolf By Night",
+    "Zombie Scarlet Witch",
+    "Zombie Giant-Man",
+    "Sasquatch"
+   ]
+  },
+  {
+   "name": "Techno-Organic Virus Shadowlands Daredevil",
+   "wr": 61.1,
+   "games": 190,
+   "meta": true,
+   "cards": [
+    "Nico Minoru",
+    "King Eitri",
+    "Maria Hill",
+    "Techno-Organic Virus",
+    "Mister Sinister",
+    "Scarlet Witch",
+    "Shadowlands Daredevil",
+    "Cable",
+    "Rhino",
+    "Shadow King",
+    "Stardust",
+    "Thanos Fractured Frontier"
+   ]
+  },
+  {
+   "name": "Strange Supreme Thanos",
+   "wr": 61.0,
+   "games": 136,
+   "meta": true,
+   "cards": [
+    "Merlin of Avalon",
+    "Spider-Man Brand New Day",
+    "King Eitri",
+    "Adam Warlock",
+    "Red Wolf Fractured Frontier",
+    "Strange Supreme",
+    "Grand Master",
+    "Joaquin Torres Falcon II",
+    "Cosmo",
+    "Thanos Fractured Frontier",
+    "Sinister Six",
+    "Thanos"
+   ]
+  },
+  {
+   "name": "Quicksand Shadow King",
+   "wr": 61.0,
+   "games": 105,
+   "meta": true,
+   "cards": [
+    "Zabu",
+    "Luke Cage",
+    "Scarlet Witch",
+    "Colossus",
+    "Quicksand",
+    "Mobius M. Mobius",
+    "Killmonger",
+    "Shadow King",
+    "Shang-Chi",
+    "Stardust",
+    "Iron Lad",
+    "Kluh"
+   ]
+  },
+  {
+   "name": "Hydra Stomper Batroc the Leaper",
+   "wr": 60.8,
+   "games": 314,
+   "meta": true,
+   "cards": [
+    "Batroc the Leaper",
+    "Spider-Man Brand New Day",
+    "Nightcrawler",
+    "Sam Wilson Captain America",
+    "Kraven",
+    "Silk",
+    "Cosmo",
+    "Hydra Stomper",
+    "Friendly Neighborhood Carnage",
+    "Prowler",
+    "Professor X",
+    "Galactus First Steps"
+   ]
+  },
+  {
+   "name": "Khonshu Apocalypse",
+   "wr": 60.8,
+   "games": 102,
+   "meta": true,
+   "cards": [
+    "Scorn",
+    "Blade",
+    "Morbius",
+    "Zombie Power Man",
+    "Gambit",
+    "Corvus Glaive",
+    "Zombie Black Cat",
+    "Dracula",
+    "Proxima Midnight",
+    "M.O.D.O.K.",
+    "Khonshu",
+    "Apocalypse"
+   ]
+  },
+  {
+   "name": "Love and Cancer",
+   "wr": 60.7,
+   "games": 135,
+   "meta": false,
+   "cards": [
+    "Wasp",
+    "Iceman",
+    "King Eitri",
+    "Adam Warlock",
+    "Lockjaw",
+    "Phastos",
+    "Thor",
+    "Beta Ray Bill",
+    "Thanos Fractured Frontier",
+    "Jane Foster Mighty Thor",
+    "Gorr the God Butcher",
+    "Odin"
+   ]
+  },
+  {
+   "name": "Steal",
+   "wr": 60.7,
+   "games": 116,
+   "meta": false,
+   "cards": [
+    "Majestic Wingbeat",
+    "The Hunger",
+    "Nicholas Scratch",
+    "Vampire Killmonger",
+    "Zombie Mister Fantastic",
+    "Joaquin Torres Falcon II",
+    "Zombie Blade",
+    "Venus",
+    "Scarlet Witch Queen of Chaos",
+    "Werewolf By Night",
+    "Zombie Giant-Man",
+    "Sasquatch"
+   ]
+  },
+  {
+   "name": "Sanctum Thanos Tempo",
+   "wr": 60.6,
+   "games": 246,
+   "meta": false,
+   "cards": [
+    "Kitty Pryde",
+    "Nebula",
+    "America Chavez",
+    "Nico Minoru",
+    "Spider-Man Brand New Day",
+    "Nightcrawler",
+    "Adam Warlock",
+    "Marvel Boy",
+    "Venus",
+    "Jane Foster Fractured Frontier",
+    "Elsa Bloodstone",
+    "Thanos Fractured Frontier"
+   ]
+  },
+  {
+   "name": "Wiccan Kluh",
+   "wr": 60.5,
+   "games": 147,
+   "meta": true,
+   "cards": [
+    "Quicksilver",
+    "Domino",
+    "Mobius M. Mobius",
+    "Rogue",
+    "Scarlet Witch Queen of Chaos",
+    "Shadow King",
+    "Copycat",
+    "Stardust",
+    "Wiccan",
+    "Thanos Fractured Frontier",
+    "Kluh",
+    "Vampire Enchantress"
+   ]
+  },
+  {
+   "name": "Zombie VWolf",
+   "wr": 60.4,
+   "games": 761,
+   "meta": false,
+   "cards": [
+    "Majestic Wingbeat",
+    "The Hunger",
+    "Nicholas Scratch",
+    "Vampire Killmonger",
+    "Zombie Mister Fantastic",
+    "Joaquin Torres Falcon II",
+    "Venus",
+    "Scarlet Witch Queen of Chaos",
+    "Werewolf By Night",
+    "Zombie Scarlet Witch",
+    "Zombie Giant-Man",
+    "Sasquatch"
+   ]
+  },
+  {
+   "name": "Zombie Scarlet Witch Zombie Blade",
+   "wr": 60.3,
+   "games": 136,
+   "meta": true,
+   "cards": [
+    "Majestic Wingbeat",
+    "The Hunger",
+    "Nicholas Scratch",
+    "Vampire Killmonger",
+    "Zombie Mister Fantastic",
+    "Joaquin Torres Falcon II",
+    "Zombie Blade",
+    "Venus",
+    "Werewolf By Night",
+    "Zombie Scarlet Witch",
+    "Zombie Giant-Man",
+    "Sasquatch"
+   ]
+  }
+ ]
+}
