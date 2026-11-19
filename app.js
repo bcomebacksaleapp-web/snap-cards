@@ -119,6 +119,7 @@ let view = 'all';
 let mode = 'list';
 let page = 0;
 const PER_PAGE = 9; // อัลบั้ม 3x3 ต่อหน้า
+const LIST_PER_PAGE = 50; // มุมมองรายการ 50 ใบต่อหน้า
 let dir = 0;
 const saveFavs = () => ext.storage.local.set({ favs: [...favs] });
 const updFavN = () => { $('favN').textContent = favs.size; };
@@ -346,7 +347,7 @@ function render() {
   $('status').textContent = `${list.length}/${cards.length} ใบ`;
   const frag = document.createDocumentFragment();
   $('list').className = mode === 'grid' ? 'grid' : '';
-  if (mode !== 'grid') $('pager').hidden = true;
+
   if (mode === 'grid') {
     const pages = Math.max(1, Math.ceil(list.length / PER_PAGE));
     page = Math.min(Math.max(page, 0), pages - 1);
@@ -379,7 +380,15 @@ ${ds(c)}`;
     $('list').replaceChildren(frag);
     return;
   }
-  list.forEach((c, i) => {
+  const lpages = Math.max(1, Math.ceil(list.length / LIST_PER_PAGE));
+  page = Math.min(Math.max(page, 0), lpages - 1);
+  const lstart = page * LIST_PER_PAGE;
+  $('pager').hidden = false;
+  $('pageInfo').textContent = `หน้า ${page + 1} / ${lpages} (${lstart + 1}–${Math.min(lstart + LIST_PER_PAGE, list.length)} จาก ${list.length})`;
+  $('prev').disabled = page === 0;
+  $('next').disabled = page >= lpages - 1;
+  list.slice(lstart, lstart + LIST_PER_PAGE).forEach((c, k) => {
+    const i = lstart + k;
     const d = document.createElement('div');
     d.className = 'card';
     const img = document.createElement('img');
@@ -427,7 +436,7 @@ const render0 = () => { page = 0; render(); };
 $('q').oninput = render0;
 $('prev').onclick = () => { page--; dir = -1; render(); $('list').scrollIntoView({ block: 'start' }); };
 $('next').onclick = () => { page++; dir = 1; render(); $('list').scrollIntoView({ block: 'start' }); };
-$('mode').onclick = () => { mode = mode === 'list' ? 'grid' : 'list'; $('mode').textContent = mode === 'grid' ? '☰ รายการ' : '▦ การ์ด'; ext.storage.local.set({ mode }); render(); };
+$('mode').onclick = () => { page = 0; mode = mode === 'list' ? 'grid' : 'list'; $('mode').textContent = mode === 'grid' ? '☰ รายการ' : '▦ การ์ด'; ext.storage.local.set({ mode }); render(); };
 document.querySelectorAll('#tabs button').forEach((b) => (b.onclick = () => {
   view = b.dataset.view; page = 0;
   document.querySelectorAll('#tabs button').forEach((x) => x.classList.toggle('active', x === b));
