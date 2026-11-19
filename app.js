@@ -469,3 +469,49 @@ $('undo').onclick = () => {
   ext.storage.local.set({ undo: undoStack });
   saveOwned(); updOwnedN(); updUndo(); render();
 };
+
+// ---------- ซิงค์คลัง/รายการโปรดด้วยรหัส (ไม่ใช้เซิร์ฟเวอร์ ข้อมูลอยู่ในรหัสเอง) ----------
+const SYNC_URL = 'https://bcomebacksaleapp-web.github.io/snap-cards/';
+const b64u = (u8) => btoa(String.fromCharCode(...u8)).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+const unb64u = (s) => Uint8Array.from(atob(s.replace(/-/g, '+').replace(/_/g, '/')), (c) => c.charCodeAt(0));
+async function pipe(u8, T) {
+  const s = new Blob([u8]).stream().pipeThrough(new T('gzip'));
+  return new Uint8Array(await new Response(s).arrayBuffer());
+}
+async function encodeSync() {
+  const raw = new TextEncoder().encode(JSON.stringify({ o: [...owned], f: [...favs] }));
+  if (typeof CompressionStream === 'undefined') return 'SNAP0.' + b64u(raw);
+  return 'SNAP1.' + b64u(await pipe(raw, CompressionStream));
+}
+async function decodeSync(code) {
+  code = code.trim().replace(/^.*#sync=/, '');
+  const m = code.match(/^SNAP([01])\.([A-Za-z0-9_-]+)$/);
+  if (!m) throw new Error('รหัสไม่ถูกต้อง');
+  let u8 = unb64u(m[2]);
+  if (m[1] === '1') { if (typeof DecompressionStream === 'undefined') throw new Error('เบราว์เซอร์นี้ถอดรหัสไม่ได้'); u8 = await pipe(u8, DecompressionStream); }
+  const j = JSON.parse(new TextDecoder().decode(u8));
+  if (!Array.isArray(j.o) || !Array.isArray(j.f)) throw new Error('รหัสไม่ถูกต้อง');
+  return j;
+}
+const syncMsg = (t, bad) => { $('syncMsg').textContent = t; $('syncMsg').style.color = bad ? '#ff7b7b' : '#7be39a'; };
+$('syncBtn').onclick = async () => {
+  $('syncRow').hidden = !$('syncRow').hidden;
+  if (!$('syncRow').hidden) { $('syncCode').value = await encodeSync(); syncMsg(`รหัสของเครื่องนี้: คลัง ${owned.size} ใบ · โปรด ${favs.size} ใบ`); }
+};
+$('syncCopy').onclick = async () => { try { await navigator.clipboard.writeText($('syncCode').value); syncMsg('คัดลอกรหัสแล้ว'); } catch (e) { $('syncCode').select(); syncMsg('กดคัดลอกเองได้เลย (เลือกข้อความไว้แล้ว)', true); } };
+$('syncLink').onclick = async () => { try { await navigator.clipboard.writeText(SYNC_URL + '#sync=' + $('syncCode').value); syncMsg('คัดลอกลิงก์แล้ว'); } catch (e) { syncMsg('คัดลอกลิงก์ไม่ได้', true); } };
+async function doImport(replace) {
+  try {
+    const j = await decodeSync($('syncCode').value);
+    snap();
+    const o = new Set(j.o), f = new Set(j.f);
+    if (replace) { owned = o; favs = f; } else { o.forEach((x) => owned.add(x)); f.forEach((x) => favs.add(x)); }
+    saveOwned(); saveFavs(); updOwnedN(); updFavN(); render();
+    syncMsg(`นำเข้าแล้ว: คลัง ${owned.size} ใบ · โปรด ${favs.size} ใบ (กด ↶ ย้อน ได้)`);
+  } catch (e) { syncMsg(e.message || 'นำเข้าไม่ได้', true); }
+}
+$('syncMerge').onclick = () => doImport(false);
+$('syncReplace').onclick = () => { if ($('syncReplaceOk').hidden) { $('syncReplaceOk').hidden = false; syncMsg('⚠ แทนที่จะลบของเดิมในเครื่องนี้ — กด "ยืนยันแทนที่" อีกครั้ง', true); } };
+$('syncReplaceOk').onclick = () => { $('syncReplaceOk').hidden = true; doImport(true); };
+// เปิดลิงก์ที่มี #sync=… → เติมรหัสให้ ไม่นำเข้าเอง (ต้องกดเอง)
+if (location.hash.startsWith('#sync=')) { $('syncRow').hidden = false; $('syncCode').value = location.hash.slice(6); syncMsg('พบรหัสซิงค์จากลิงก์ — กด "รวม" หรือ "แทนที่" เพื่อนำเข้า'); }

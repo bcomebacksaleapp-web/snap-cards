@@ -44,12 +44,18 @@
   </div>
   <div id="tierConfirm" class="row" hidden><span id="tierMsg" style="color:#ffcf66"></span><button id="tierOk">ยืนยัน</button><button id="tierNo">ยกเลิก</button></div>
   <div id="pinRow" class="row" hidden><input id="pin" type="password" inputmode="numeric" placeholder="ใส่รหัสเพื่อล้างคลัง" style="flex:none;width:160px"><button id="pinOk">ยืนยันล้าง</button><button id="pinCancel">ยกเลิก</button><span id="pinMsg" style="color:#ff7b7b;align-self:center"></span></div>
+  <div id="syncRow" hidden>
+    <textarea id="syncCode" rows="3" placeholder="รหัสซิงค์ — วางรหัสจากอีกเครื่องที่นี่" style="width:100%;box-sizing:border-box;background:#1f222c;color:inherit;border:1px solid #333847;border-radius:6px;padding:6px;font-size:16px"></textarea>
+    <div class="row" style="margin-top:6px"><button id="syncCopy">คัดลอกรหัส</button><button id="syncLink">คัดลอกลิงก์</button><button id="syncMerge">นำเข้า (รวม)</button><button id="syncReplace">นำเข้า (แทนที่)</button><button id="syncReplaceOk" hidden>ยืนยันแทนที่</button></div>
+    <div id="syncMsg" style="font-size:12px;margin-bottom:6px"></div>
+  </div>
   <div id="deck"></div>
   <div class="row">
     <button id="json">Export JSON</button>
     <button id="csv">Export CSV</button>
     <button id="mode" title="สลับมุมมอง">▦ การ์ด</button>
     <button id="lang" title="สลับภาษา">ไทย</button>
+    <button id="syncBtn" title="ซิงค์คลังข้ามเครื่อง">⇄ ซิงค์</button>
     <button id="reload">รีเฟรช</button>
     <span id="status" style="align-self:center"></span>
   </div>
