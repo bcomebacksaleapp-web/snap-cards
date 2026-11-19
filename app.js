@@ -493,18 +493,31 @@ async function pipe(u8, T) {
 }
 async function encodeSync() {
   const raw = new TextEncoder().encode(JSON.stringify({ o: [...owned], f: [...favs] }));
-  if (typeof CompressionStream === 'undefined') return 'SNAP0.' + b64u(raw);
-  return 'SNAP1.' + b64u(await pipe(raw, CompressionStream));
+  const noCs = typeof CompressionStream === 'undefined';
+  const payload = b64u(noCs ? raw : await pipe(raw, CompressionStream));
+  // SNAP2.<ข้อมูล>.<จำนวนตัวอักษรของข้อมูล> — ใช้ตรวจว่ารหัสถูกตัดตอนคัดลอกหรือไม่
+  return `SNAP${noCs ? 3 : 2}.${payload}.${payload.length}`;
 }
 async function decodeSync(code) {
-  code = code.trim().replace(/^.*#sync=/, '');
-  const m = code.match(/^SNAP([01])\.([A-Za-z0-9_-]+)$/);
-  if (!m) throw new Error('รหัสไม่ถูกต้อง');
-  let u8 = unb64u(m[2]);
-  if (m[1] === '1') { if (typeof DecompressionStream === 'undefined') throw new Error('เบราว์เซอร์นี้ถอดรหัสไม่ได้'); u8 = await pipe(u8, DecompressionStream); }
-  const j = JSON.parse(new TextDecoder().decode(u8));
-  if (!Array.isArray(j.o) || !Array.isArray(j.f)) throw new Error('รหัสไม่ถูกต้อง');
-  return j;
+  code = code.replace(/\s+/g, '').replace(/^.*#sync=/, '');
+  const m = code.match(/^SNAP([0-3])\.([A-Za-z0-9_-]+)(?:\.(\d+))?$/);
+  if (!m) throw new Error('รหัสไม่ถูกต้อง หรือถูกตัดไม่ครบ — คัดลอกรหัสใหม่ทั้งหมด (ขึ้นต้น SNAP)');
+  if (m[3] && +m[3] !== m[2].length) throw new Error(`รหัสถูกตัด: ได้ ${m[2].length} ตัวอักษร ควรมี ${m[3]} — คัดลอกใหม่ให้ครบ`);
+  const plain = m[1] === '0' || m[1] === '3';
+  let u8;
+  try {
+    u8 = unb64u(m[2]);
+    if (!plain) {
+      if (typeof DecompressionStream === 'undefined') throw new Error('เบราว์เซอร์นี้ถอดรหัสไม่ได้');
+      u8 = await pipe(u8, DecompressionStream);
+    }
+    const j = JSON.parse(new TextDecoder().decode(u8));
+    if (!Array.isArray(j.o) || !Array.isArray(j.f)) throw new Error('bad');
+    return j;
+  } catch (e) {
+    if (e && e.message === 'เบราว์เซอร์นี้ถอดรหัสไม่ได้') throw e;
+    throw new Error('รหัสไม่ครบหรือเสียหาย — ต้นทางกด "คัดลอกรหัส" ใหม่ แล้ววางให้ครบทั้งหมด');
+  }
 }
 const syncMsg = (t, bad) => { $('syncMsg').textContent = t; $('syncMsg').style.color = bad ? '#ff7b7b' : '#7be39a'; };
 $('syncBtn').onclick = async () => {
