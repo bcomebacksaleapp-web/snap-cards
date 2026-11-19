@@ -78,7 +78,11 @@ async function cachedImg(img, id, holder) {
     const blobUrl = URL.createObjectURL(await res.blob());
     img.onload = () => URL.revokeObjectURL(blobUrl);
     img.src = blobUrl;
-  } catch (e) { if (holder) holder.remove(); } // ไม่มีรูป = ไม่ใช่การ์ดจริง (เช่น augment/token) ซ่อนไว้
+  } catch (e) {
+    // แคช/บล็อบใช้ไม่ได้ (เช่น บน iOS) → โหลดรูปตรงๆ แทน และไม่ลบการ์ดทิ้งไม่ว่ากรณีใด
+    img.onerror = () => { img.style.visibility = 'hidden'; };
+    img.src = url;
+  }
 }
 
 const TH = { 'on reveal': 'เปิดตัว (On Reveal)', ongoing: 'ต่อเนื่อง (Ongoing)', 'end of turn': 'จบเทิร์น (End of Turn)', 'when this is discarded': 'เมื่อถูกทิ้ง', 'when this dies': 'เมื่อตาย', 'when this is destroyed': 'เมื่อถูกทำลาย', destroy: 'ทำลาย', discard: 'ทิ้ง', move: 'ย้าย', 'on turn': 'ทุกเทิร์น', 'start of game': 'เริ่มเกม', 'no ability': 'ไม่มีความสามารถ' };
@@ -524,3 +528,7 @@ if (location.hash.startsWith('#sync=')) { $('syncRow').hidden = false; $('syncCo
     document.querySelectorAll('#tabs button').forEach((x) => x.classList.toggle('active', x.dataset.view === 'own'));
   }
 })();
+
+// แสดงข้อผิดพลาดบนหน้าจอ (ช่วยไล่ปัญหาบนมือถือที่เปิดคอนโซลไม่ได้)
+window.addEventListener('error', (e) => { const s = $('status'); if (s) s.textContent = 'ข้อผิดพลาด: ' + (e.message || e.error); });
+window.addEventListener('unhandledrejection', (e) => { const s = $('status'); if (s) s.textContent = 'ข้อผิดพลาด: ' + ((e.reason && e.reason.message) || e.reason); });
