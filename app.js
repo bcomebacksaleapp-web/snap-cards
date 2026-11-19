@@ -515,3 +515,12 @@ $('syncReplace').onclick = () => { if ($('syncReplaceOk').hidden) { $('syncRepla
 $('syncReplaceOk').onclick = () => { $('syncReplaceOk').hidden = true; doImport(true); };
 // เปิดลิงก์ที่มี #sync=… → เติมรหัสให้ ไม่นำเข้าเอง (ต้องกดเอง)
 if (location.hash.startsWith('#sync=')) { $('syncRow').hidden = false; $('syncCode').value = location.hash.slice(6); syncMsg('พบรหัสซิงค์จากลิงก์ — กด "รวม" หรือ "แทนที่" เพื่อนำเข้า'); }
+
+// เปิดมาแล้วเริ่มที่แท็บ "คลัง" ถ้ามีการ์ดในคลังอยู่แล้ว
+(async () => {
+  const r = await ext.storage.local.get('owned');
+  if ((r.owned || []).length) {
+    view = 'own';
+    document.querySelectorAll('#tabs button').forEach((x) => x.classList.toggle('active', x.dataset.view === 'own'));
+  }
+})();

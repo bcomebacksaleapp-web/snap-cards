@@ -1,6 +1,6 @@
 // Service worker: keeps the app's files on the device so it opens offline after the first visit.
 // BUMP `VERSION` every time any cached file changes, otherwise installed copies keep the old files.
-const VERSION = 'snapcards-v2';
+const VERSION = 'snapcards-v3';
 const FILES = [
   './', './index.html', './style.css', './app.js', './tiers-zone.json', './decks-zone.json',
   './manifest.webmanifest', './icon-192.png', './icon-512.png', './apple-touch-icon.png',
